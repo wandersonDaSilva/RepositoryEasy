@@ -1,0 +1,127 @@
+<section class="section-page py-3">
+  <div class="container">
+    <a href="" class="close" title="fechar" data-toggle="modal"><i class="fa fa-times"></i></a>
+    <div>
+      <div class="signup-form">
+        <h4>Dados Pessoais</h4>
+      </div>
+      <div [formGroup]="form" class="row">
+        <div class="col-md-3">
+          <div class="md-form">
+            <input [(ngModel)]="candidato.nome" formControlName="nome"
+              [ngClass]="{ 'is-invalid' : submitted && hasError('nome')}" mdbInput type="text" class="form-control">
+            <div class="invalid-feedback" *ngIf="hasError('nome') && hasError('nome')['required']">
+              Campo obrigatório!
+            </div>
+            <label class="labelForm">Nome <span>*</span></label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input [(ngModel)]="candidato.email" formControlName="email"
+              [ngClass]="{ 'is-invalid' : submitted && hasError('email')}" mdbInput type="text" class="form-control">
+            <div class="invalid-feedback" *ngIf="hasError('email') && hasError('email')['required']">
+              Campo obrigatório!
+            </div>
+            <label class="labelForm">Email <span>*</span></label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input [(ngModel)]="candidato.telefone" formControlName="telefone" maxlength="10"
+              [ngClass]="{ 'is-invalid' : submitted && hasError('telefone')}" mdbInput type="text" class="form-control">
+            <div class="invalid-feedback" *ngIf="hasError('telefone') && hasError('telefone')['required']">
+              Campo obrigatório!
+            </div>
+            <label class="labelForm">Telefone (Whatsapp) <span>*</span></label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input [(ngModel)]="candidato.estado" formControlName="estado"
+              [ngClass]="{ 'is-invalid' : submitted && hasError('estado')}" mdbInput type="text" class="form-control">
+            <div class="invalid-feedback" *ngIf="hasError('estado') && hasError('cidade')['required']">
+              Campo obrigatório!
+            </div>
+            <label class="labelForm">Estado <span>*</span></label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input [(ngModel)]="candidato.cidade" formControlName="cidade"
+              [ngClass]="{ 'is-invalid' : submitted && hasError('cidade')}" mdbInput type="text" class="form-control">
+            <div class="invalid-feedback" *ngIf="hasError('cidade') && hasError('cidade')['required']">
+              Campo obrigatório!
+            </div>
+            <label class="labelForm">Cidade <span>*</span></label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input formControlName="skype" [(ngModel)]="candidato.skype" mdbInput type="text" class="form-control">
+            <label class="labelForm">Skype</label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input formControlName="linkedin" [(ngModel)]="candidato.linkedin" mdbInput type="text"
+              class="form-control">
+            <label class="labelForm">Linkedin</label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="md-form">
+            <input formControlName="portfolio" [(ngModel)]="candidato.portfolio" mdbInput type="text"
+              class="form-control">
+            <label class="labelForm">Portfolio</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-one">
+      <div class="signup-form">
+        <h4>Informações adicionais</h4>
+      </div>
+      <div [formGroup]="form" class="row">
+        <div class=" flex-box col-md-6 panel panel-default ">
+          <div class="panel-heading">Qual é sua disponibilidade para
+            trabalhar
+            hoje?
+            <div [ngClass]="('formRadio')" id="formRadio" class="list-group">
+              <div *ngFor="let item of formRadioOpition" class="custom-control custom-radio">
+                <label class="radio-inline">
+                  <input [(ngModel)]="candidato.horasPorDia" type="radio" [value]="item.valor"
+                    formControlName="formRadio"> {{ item.desc }}
+                </label>
+              </div>
+              <div class="md-form">
+                <input formControlName="salario" [(ngModel)]="candidato.salario"
+                  [ngClass]="{ 'is-invalid' : submitted && hasError('salario')}" style="width: 40%;" mdbInput
+                  placeholder="Salário" type="text" class="form-control">
+                <label for="form58">Qual sua pretensão salarial por hora? <span>*</span></label>
+                <div class="invalid-feedback" *ngIf="hasError('salario') && hasError('salario')['required']">
+                  Campo obrigatório!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" col-md-6 panel panel-default">
+          <div class="panel-heading">Pra você qual é o melhor horário para trabalhar?
+            <div [ngClass]="('formRadioTwo')" id="formRadioTwo" class="list-group">
+              <div *ngFor="let item of formRadioOpitionTwo" class="custom-control custom-radio">
+                <label class="radio-inline">
+                  <input class="control-input" [(ngModel)]="candidato.horarioParaTrabalho" type="radio"
+                    [value]="item.valor" formControlName="formRadioTwo"> {{ item.desc }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="onCancel()" type="button" class="btn btn-light">Voltar</button>
+    &nbsp;
+    <button (click)="onSubmit()" [disabled]="!form.valid" type="button" class="btn btn-light">Salvar</button>
+  </div>
+</section>
