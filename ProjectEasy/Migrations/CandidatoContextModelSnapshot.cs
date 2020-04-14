@@ -50,14 +50,14 @@ namespace ProjectEasy.Migrations
                     b.Property<string>("portfolio")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("salario")
-                        .HasColumnType("int");
+                    b.Property<string>("salario")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("skype")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("telefone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 

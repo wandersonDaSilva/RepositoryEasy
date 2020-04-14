@@ -4,12 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule, ModalModule, MDBModalRef } from 'angular-bootstrap-md';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CandidatoComponent } from './candidato/candidato.component';
 import { NovoCandidatoComponent } from './novo-candidato/novo-candidato.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { NovoCandidatoComponent } from './novo-candidato/novo-candidato.componen
     RouterModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
+    ModalModule.forRoot(),
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

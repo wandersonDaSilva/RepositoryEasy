@@ -8694,11 +8694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\waand\\source\\repos\\ProjectEasy\\ProjectEasy.csproj",
+      "projectUniqueName": "C:\\Users\\waand\\source\\repos\\Easy\\ProjectEasy\\ProjectEasy.csproj",
       "projectName": "ProjectEasy",
-      "projectPath": "C:\\Users\\waand\\source\\repos\\ProjectEasy\\ProjectEasy.csproj",
+      "projectPath": "C:\\Users\\waand\\source\\repos\\Easy\\ProjectEasy\\ProjectEasy.csproj",
       "packagesPath": "C:\\Users\\waand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\waand\\source\\repos\\ProjectEasy\\obj\\",
+      "outputPath": "C:\\Users\\waand\\source\\repos\\Easy\\ProjectEasy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

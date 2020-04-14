@@ -14,13 +14,13 @@ namespace ProjectEasy.Models
         public int id { get; set; }
         public string nome { get; set; }
         public string email { get; set; }
-        public int? telefone { get; set; }
+        public string telefone { get; set; }
         public string skype { get; set; }
         public string linkedin { get; set; }
         public string portfolio { get; set; }
         public string estado { get; set; }
         public string cidade { get; set; }
-        public int? salario { get; set; }
+        public string salario { get; set; }
         public bool? horasPorDia { get; set; }
         public bool? horarioParaTrabalho { get; set; }
 

@@ -5,8 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Content Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20200401215702_InitialCreate.cs" />
     <Compile Remove="Migrations\20200401215702_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200401235856_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200401235856_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200412170222_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200412170222_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200412171211_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200412171211_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200412171755_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200412171755_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

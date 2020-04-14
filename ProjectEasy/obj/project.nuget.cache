@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p9SPlAF3m109oCTLI9jSGphYqC248eS8qUbGBaZE4lo8vZJwWKv2d6p7qkVnkJi3h2M/7+IM4p8YbBZ/Uokxgw==",
+  "dgSpecHash": "E1SHglMMDOhksejJCxbDky/ovHZsjEceCq2vQ4zms/TaJL10PrsXJhWTFKSgfqEeFod1Up3EsNVlVMQYNqC8yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\waand\\source\\repos\\ProjectEasy\\ProjectEasy.csproj",
+  "projectFilePath": "C:\\Users\\waand\\source\\repos\\Easy\\ProjectEasy\\ProjectEasy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\waand\\.nuget\\packages\\entityframework.microsoftsqlserver\\7.0.0-rc1-final\\entityframework.microsoftsqlserver.7.0.0-rc1-final.nupkg.sha512",
     "C:\\Users\\waand\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

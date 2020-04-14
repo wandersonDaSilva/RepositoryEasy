@@ -1,8 +1,11 @@
+
 import { Candidato } from './../model/candidato';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CandidatoService } from '../services/candidato.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AlertModalService } from '../shared/alert-modal.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-novo-candidato',
@@ -38,13 +41,14 @@ export class NovoCandidatoComponent implements OnInit {
   formRadioOpitionTwo: any[];
   isDisabled = false;
 
-
   constructor(
     private fb: FormBuilder,
     private candidatoService: CandidatoService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {
+    private route: ActivatedRoute,
+    private modal: AlertModalService,
+    private location: Location,
+    ) {
 
     const param = this.route.snapshot.params;
     if (param) {
@@ -69,7 +73,7 @@ export class NovoCandidatoComponent implements OnInit {
     this.form = this.fb.group({
       nome: [{value: null, disabled: this.isDisabled}, [Validators.required]],
       email: [{value: null, disabled: this.isDisabled}, [Validators.required]],
-      telefone: [{value: null, disabled: this.isDisabled}, [Validators.required]],
+      telefone: [{value: null, disabled: this.isDisabled}, [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
       estado: [{value: null, disabled: this.isDisabled}, [Validators.required]],
       cidade: [{value: null, disabled: this.isDisabled}, [Validators.required]],
       salario: [{value: null, disabled: this.isDisabled}, [Validators.required]],
@@ -88,7 +92,6 @@ export class NovoCandidatoComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     this.submitted = true;
     if (this.candidato.id) {
       this.update(this.candidato.id);
@@ -98,22 +101,27 @@ export class NovoCandidatoComponent implements OnInit {
   }
 
   createCandidato() {
-    debugger;
     this.candidatoService.createCandidato(this.candidato).subscribe(
       res => {
+        this.modal.showAlertSuccess('Candidato salvo com sucesso!');
+        this.location.back();
       },
       error => {
+        this.modal.showAlertDanger('Erro ao adicionar candidato. Tente mais tarde.');
+        // this.router.navigate(['']);
       }
     );
-    this.router.navigate(['']);
   }
 
   update(id) {
-    debugger;
     this.candidatoService.update(id, this.candidato).subscribe(
       resp => {
+        this.modal.showAlertWarning('Alteração feita com sucesso!');
+        this.router.navigate(['']);
       },
       error => {
+        this.modal.showAlertDanger('Erro ao editar candidato. Tente mais tarde.');
+        this.router.navigate(['']);
       }
     );
   }
@@ -122,5 +130,4 @@ export class NovoCandidatoComponent implements OnInit {
     this.submitted = false;
     this.router.navigate(['']);
   }
-
 }

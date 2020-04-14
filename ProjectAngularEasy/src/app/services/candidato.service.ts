@@ -15,23 +15,20 @@ export class CandidatoService {
   constructor(private http: HttpClient) { }
 
 listCandidato(): Observable<any> {
-  debugger;
   return this.http.get(`${ this.urlApi }`);
-}
+} 
 
 loadById(id) {
   return this.http.get(`${ this.urlApi }/${id}`);
 }
 
 createCandidato(cand: Candidato): Observable<any> {
-  debugger;
   const header = new HttpHeaders().set('Content-type', 'application/json');
   const candidato = JSON.stringify(cand);
   return this.http.post(`${ this.urlApi }`, candidato, { headers: header});
 }
 
 update(id, cand): Observable<any> {
-  debugger;
   const header = new HttpHeaders().set('Content-type', 'application/json');
   const candidato = JSON.stringify(cand);
   return this.http.put(`${ this.urlApi }/${id}`, candidato, { headers: header});

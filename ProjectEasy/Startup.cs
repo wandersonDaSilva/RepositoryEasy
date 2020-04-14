@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -49,8 +49,6 @@ namespace ProjectEasy
 
             services.AddMvc();
 
-            services.AddDbContext<CandidatoContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ProjectEasyContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

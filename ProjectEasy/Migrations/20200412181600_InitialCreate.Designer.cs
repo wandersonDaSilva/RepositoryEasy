@@ -10,7 +10,7 @@ using ProjectEasy.Models;
 namespace ProjectEasy.Migrations
 {
     [DbContext(typeof(CandidatoContext))]
-    [Migration("20200401235856_InitialCreate")]
+    [Migration("20200412181600_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,14 +52,14 @@ namespace ProjectEasy.Migrations
                     b.Property<string>("portfolio")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("salario")
-                        .HasColumnType("int");
+                    b.Property<string>("salario")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("skype")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("telefone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
