@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
+import { take, switchMap } from 'rxjs/operators';
 
 
 import { Candidato } from '../model/candidato';
 import { CandidatoService } from '../services/candidato.service';
 import { MDBModalService, MDBModalRef } from 'angular-bootstrap-md';
 import { AlertModalService } from './../shared/alert-modal.service';
+import { EMPTY } from 'rxjs';
 
 
 
@@ -59,7 +61,21 @@ export class CandidatoComponent implements OnInit {
 
   deletar(id) {
     this.idCandidatoSelecionado = id;
-    this.deleteModalRef = this.modalService.show(this.deleteModal);
+    // this.deleteModalRef = this.modalService.show(this.deleteModal);
+    const result$ = this.alertService.showConfirm('', 'Tem certeza que deseja remover o candidato?');
+    result$.asObservable()
+    .pipe(
+      take(1),
+      switchMap(result => result ? this.candidatoService.delete(id) : EMPTY)
+    )
+    .subscribe(
+      success => {
+        this.load();
+      },
+      error => {
+        this.alertService.showAlertDanger('Erro ao remover candidato!');
+      }
+    );
   }
 
   onConfirmDelete() {

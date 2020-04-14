@@ -1,0 +1,33 @@
+.modal-header {
+  border-top-left-radius: 0.125rem;
+  border-top-right-radius: 0.125rem;
+  background-color: rgb(231, 39, 39);
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #fbfbfb;
+  text-align: center;
+  padding-left: 21px;
+}
+.botao {
+  text-align: center;
+  padding: 2%;
+}
+.botaoConfirm {
+  text-align: center;
+  border: 1px solid #eee;
+  font-size: 14px;
+  background-color: #c7e9c7;
+  color: white;
+}
+.botaoClose {
+  text-align: center;
+  border: 1px solid #eee;
+  font-size: 14px;
+  background-color: #eba4aa;
+  color: white;
+}
+.btn:hover {
+  color: rgb(66, 66, 66);
+}
