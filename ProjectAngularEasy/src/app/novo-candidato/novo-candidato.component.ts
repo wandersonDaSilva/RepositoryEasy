@@ -34,12 +34,13 @@ export class NovoCandidatoComponent implements OnInit {
 
 
 
-// VARIAVEIS //
+  // VARIAVEIS //
   form: FormGroup;
   submitted = false;
   formRadioOpition: any[];
   formRadioOpitionTwo: any[];
   isDisabled = false;
+  isInvalid: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -48,7 +49,7 @@ export class NovoCandidatoComponent implements OnInit {
     private route: ActivatedRoute,
     private modal: AlertModalService,
     private location: Location,
-    ) {
+  ) {
 
     const param = this.route.snapshot.params;
     if (param) {
@@ -71,23 +72,24 @@ export class NovoCandidatoComponent implements OnInit {
     }
 
     this.form = this.fb.group({
-      nome: [{value: null, disabled: this.isDisabled}, [Validators.required]],
-      email: [{value: null, disabled: this.isDisabled}, [Validators.required]],
-      telefone: [{value: null, disabled: this.isDisabled}, [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
-      estado: [{value: null, disabled: this.isDisabled}, [Validators.required]],
-      cidade: [{value: null, disabled: this.isDisabled}, [Validators.required]],
-      salario: [{value: null, disabled: this.isDisabled}, [Validators.required]],
-      skype: [{value: null, disabled: this.isDisabled}, ],
-      linkedin: [{value: null, disabled: this.isDisabled}, ],
-      portfolio: [{value: null, disabled: this.isDisabled}, ],
-      formRadio: [{value: null, disabled: this.isDisabled}],
-      formRadioTwo: [{value: null, disabled: this.isDisabled}],
+      nome: [{ value: null, disabled: this.isDisabled }, [Validators.required]],
+      email: [{ value: null, disabled: this.isDisabled }, [Validators.required]],
+      telefone: [{ value: null, disabled: this.isDisabled }, [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
+      estado: [{ value: null, disabled: this.isDisabled }, [Validators.required]],
+      cidade: [{ value: null, disabled: this.isDisabled }, [Validators.required]],
+      salario: [{ value: null, disabled: this.isDisabled }, [Validators.required]],
+      skype: [{ value: null, disabled: this.isDisabled },],
+      linkedin: [{ value: null, disabled: this.isDisabled },],
+      portfolio: [{ value: null, disabled: this.isDisabled },],
+      formRadio: [{ value: null, disabled: this.isDisabled }],
+      formRadioTwo: [{ value: null, disabled: this.isDisabled }],
     });
 
 
   }
 
-  hasError(field: string) {
+  hasError(field: any) {
+    this.isInvalid = true;
     return this.form.get(field).errors;
   }
 
@@ -107,6 +109,7 @@ export class NovoCandidatoComponent implements OnInit {
         this.location.back();
       },
       error => {
+        this.isInvalid = true;
         this.modal.showAlertDanger('Erro ao adicionar candidato. Tente mais tarde.');
         // this.router.navigate(['']);
       }

@@ -21,6 +21,14 @@ div.titulo span {
   box-sizing: content-box;
   background-color: transparent;
 }
+
+.inputRadio {
+     position: absolute;
+    top: .25rem;
+    left: 5px;
+    width: 16px;
+    height: 1rem;
+}
 .custom-select {
   width: 75%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -83,10 +91,12 @@ span {
 }
 small {
   color: #a52a2a;
+    font-size: 85%;
+    font-weight: 700;
 }
 .col .form-control {
   /* margin: 12px  -2px 0.5rem -11px; */
-  margin: 0px -7px 0.5rem 0px;
+  margin: 0px -7px 0px 0px;
 }
 hr {
   border: 0;
@@ -121,8 +131,11 @@ h4 {
   background-color: #9cd69e;
   border-color: #dae0e5;
 }
-input:hover {
-  color: #212529;
-  /* background-color: #9cd69e; */
-  border-color: #dae0e5;
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid #e40202;
+}
+.smallValidation {
+  color: #e40202;
+  font-size: 70%;
+  font-weight: 100;
 }
